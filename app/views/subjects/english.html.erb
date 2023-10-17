@@ -1,0 +1,7 @@
+<h1>英語</h1>
+<% @subjects.each do |t| %>
+  <% if t.name == "英語" %>  
+  <p>内容:<%= t.contents %></p>
+  <p>学年:<%= t.grade %></p>
+  <% end %>
+<% end %>

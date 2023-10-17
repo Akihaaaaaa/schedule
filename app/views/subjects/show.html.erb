@@ -1,0 +1,64 @@
+<h1>○○</h1>
+<h3>勉強法詳細</h3>
+<div class="subject">
+  <p><%= @subjects.name %></p>
+  <p><%= @subjects.contents %></p>
+  <p><%= @subjects.grade %></p>
+</div>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+
+      <div>
+<h2>評価：
+<span class="star-rating">
+   <span class="star-rating-front" style="width: <%= getPercent(c.level) %>%;">★★★★★</span>
+   <span class="star-rating-back">★★★★★</span>
+</span>
+</h2>
+</div>
+      
+      
+      
+
+    
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@subjects, @comment], local: true) do |f| %>
+
+      <h5>評価</h5>
+      <div class="post_form">
+        <%= f.radio_button :level,  3 ,id: 'star6'%>
+        <label for="star6"><span class="text">すごく良い</span>★</label>
+    
+        <%= f.radio_button :level,  2 ,id: 'star7'%>
+        <label for="star7"><span class="text">良い</span>★</label>
+    
+        <%= f.radio_button :level, 1 ,id: 'star8'%>
+        <label for="star8"><span class="text">普通</span>★</label>
+        <%= f.radio_button :overall, 2 ,id: 'star4'%>
+    <label for="star4"><span class="text">悪い</span>★</label>
+    
+    <%= f.radio_button :overall, 1 ,id: 'star5'%>
+    <label for="star5"><span class="text">最悪</span>★</label>
+    </div>
+
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+<%= link_to "一覧に戻る", subjects_path %>

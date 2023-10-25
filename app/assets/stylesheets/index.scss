@@ -1,56 +1,106 @@
-/*タブ切り替え全体のスタイル*/
 .tabs {
-    margin-top: 50px;
-    padding-bottom: 40px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 700px;
-    margin: 0 auto;}
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 700px;
+  margin: 0 auto;}
+
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/6);
+  height: 50px;
   
-  /*タブのスタイル*/
-  .tab_item {
-    width: calc(100%/4);
-    height: 50px;
-    border-bottom: 3px solid #5ab4bd;
-    background-color: #d9d9d9;
-    line-height: 50px;
-    font-size: 16px;
-    text-align: center;
-    color: #565656;
-    display: block;
-    float: left;
-    text-align: center;
-    font-weight: bold;
-    transition: all 0.2s ease;
-  }
-  .tab_item:hover {
-    opacity: 0.75;
-  }
+  background-color: #ABD904;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border-radius: 5px 5px 0 0;
+}
+.tab_item:hover {
   
-  /*ラジオボタンを全て消す*/
-  input[name="tab_item"] {
-    display: none;
-  }
+  background-color: #F29727;
+}
+.ii{
+  width: 20px;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+  text-align:  center;
+
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#japanese:checked ~ #japanese_content,
+#math:checked ~ #math_content,
+#english:checked ~ #english_content,
+#science:checked ~ #science_content,
+#society:checked ~ #society_content,
+#sonota:checked ~ #sonota_content
+ {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #5ab4bd;
+  color: #fff;
+}
+
+.title{                           
+  display:  inline-block;                         
+  width:97.3vw;
+  height: 25vw;                    
+  background-image: url(kinnmokusei.jpg);
+  background-size: cover;
+  text-align:  center;
   
-  /*タブ切り替えの中身のスタイル*/
-  .tab_content {
-    display: none;
-    padding: 40px 40px 0;
-    clear: both;
-    overflow: hidden;
-  }
+}
   
+
+
+.big-text{
+  color:#565656;
+  text-align:  center;
+  margin: 0 auto;
+   }
+
+.box{width: 200px;
+  height: 50px;
+  padding:  5px;   
+ text-align:center;
+   margin: 93px;
+   white-space: nowrap;
+  overflow: visible;
   
-  /*選択されているタブのコンテンツのみを表示*/
-  #japanese:checked ~ #japanese_content,
-  #math:checked ~ #math_content,
-  #english:checked ~ #english_content, 
-  #sonota:checked ~ #sonota_content {
-    display: block;
   }
 
-  
-  /*選択されているタブのスタイルを変える*/
-  .tabs input:checked + .tab_item {
-    background-color: #5ab4bd;
-    color: #fff;}
+.ichirann{color:#565656;
+  text-align:center;
+}
+
+
+  .naiyou{color:#565656;
+  }
+
+
+.message-1{text-align: center;
+color:#565656;
+padding:10px;}

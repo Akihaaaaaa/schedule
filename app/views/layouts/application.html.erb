@@ -13,7 +13,6 @@
   <body>
   <body>
   <header>
-   <h1>○○</h1>
    <div class="header-list">
     <ul>
      <% if user_signed_in? %>
@@ -25,9 +24,17 @@
     </ul>
    </div>
   </header>
+
+  
+
   <main>
    <%= yield %>
   </main>
+
+  <footer>	
+  <small>© 2023 Akiha Horiuchi</small>
+  </footer>
+
  </body>
   </body>
 </html>

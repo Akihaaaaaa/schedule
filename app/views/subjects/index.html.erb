@@ -1,75 +1,119 @@
-<h1>自分の題名</h1>
-<h3>一覧ページ</h3>
-<div class="all">
-<%= link_to "新規投稿へ", new_subject_path %>
-<%= link_to "国語", subjects_japanese_path %>
-<%= link_to "英語", subjects_english_path %>
-<%= link_to "数学", subjects_math_path %>
+
+
+<div class="title">
+<div class="box">
+<div class="big-text">
+<h1>きっと見つかるあなたの勉強法</h1>
+</div>
+</div>
 </div>
 
-<input id="japanese" type="radio" name="tab_item" checked>
-<label class="tab_item" for="japanese">国語</label>
-<input id="math" type="radio" name="tab_item">
-<label class="tab_item" for="math">数学</label>
-<input id="english" type="radio" name="tab_item">
-<label class="tab_item" for="english">英語</label>
-<input id="sonota" type="radio" name="tab_item" checked>
-<label class="tab_item" for="sonota">その他</label>
+<p class="message-1">
+「勉強法が決まると日々の勉強や試験勉強が楽になる」<br>
+それは知っているけれど、どうやって見つけたらいいか分からないあなたへ<br>
+みんなで協力して探しませんか？<br>
+</p>
 
-<div class="tab_content" id="japanese_content">
-<% @subjects.each do |t| %>
-    <% if t.name == "国語" %>  
+
+<div class="ichirann">
+<h3>～みんなの勉強法一覧～</h3>
+</div>
+
+
+<p><%= link_to "新規投稿へ", subjects_new_path %></p>
+
+
+<div class="naiyou">
+  <input id="japanese" type="radio" name="tab_item" class="ii" checked>
+  <label class="tab_item" for="japanese">国語</label>
+  <input id="math" type="radio" name="tab_item" class="ii">
+  <label class="tab_item" for="math">数学</label>
+  <input id="english" type="radio" name="tab_item" class="ii">
+  <label class="tab_item" for="english">英語</label>
+  <input id="science" type="radio" name="tab_item" class="ii">
+  <label class="tab_item" for="science">理科</label>
+  <input id="society" type="radio" name="tab_item" class="ii">
+  <label class="tab_item" for="society">社会</label>
+  <input id="sonota" type="radio" name="tab_item" class="ii">
+  <label class="tab_item" for="sonota">その他</label>
+ 
+
+  <div class="tab_content" id="japanese_content">
+  <% @subjects.each do |t| %>
+    <% if t.name == "国語" %>
     <p>教科名:<%= t.name2 %></p>
-    <p>内容:<%= t.contents %></p>
+    <p>方法:<%= t.contents %></p>
     <p>学年:<%= t.grade %></p>
-
     <%= image_tag t.image_url, size: "250x200" if t.image? %>
-
-    
-  
     <%= link_to "詳細へ", subject_path(t.id) %>
     <%= link_to "編集する", edit_subject_path(t.id) %>
     <%= button_to "削除する", subject_path(t.id), method: :delete %>
     <% end %>
   <% end %>
-</div>
-
-<div class="tab_content" id="math_content">
-<% @subjects.each do |t| %>
-    <% if t.name == "数学" %>  
+  </div>
+  <div class="tab_content" id="math_content">
+  <% @subjects.each do |t| %>
+    <% if t.name == "数学" %>
     <p>教科名:<%= t.name2 %></p>
-    <p>内容:<%= t.contents %></p>
+    <p>方法:<%= t.contents %></p>
     <p>学年:<%= t.grade %></p>
-
     <%= image_tag t.image_url, size: "250x200" if t.image? %>
-
-    <div>
-
-
     <%= link_to "詳細へ", subject_path(t.id) %>
     <%= link_to "編集する", edit_subject_path(t.id) %>
     <%= button_to "削除する", subject_path(t.id), method: :delete %>
     <% end %>
   <% end %>
-</div>
-
-<div class="tab_content" id="english_content">
-<% @subjects.each do |t| %>
-  <% if t.name == "英語" %>  
-  <p>教科名:<%= t.name2 %></p>
-  <p>内容:<%= t.contents %></p>
-  <p>学年:<%= t.grade %></p>
-
-  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+  </div>
+  <div class="tab_content" id="english_content">
+  <% @subjects.each do |t| %>
+    <% if t.name == "英語" %>
+    <p>教科名:<%= t.name2 %></p>
+    <p>方法:<%= t.contents %></p>
+    <p>学年:<%= t.grade %></p>
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    <%= link_to "詳細へ", subject_path(t.id) %>
+    <%= link_to "編集する", edit_subject_path(t.id) %>
+    <%= button_to "削除する", subject_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="tab_content" id="science_content">
+  <% @subjects.each do |t| %>
+    <% if t.name == "理科" %>
+    <p>教科名:<%= t.name2 %></p>
+    <p>方法:<%= t.contents %></p>
+    <p>学年:<%= t.grade %></p>
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    <%= link_to "詳細へ", subject_path(t.id) %>
+    <%= link_to "編集する", edit_subject_path(t.id) %>
+    <%= button_to "削除する", subject_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="tab_content" id="society_content">
+  <% @subjects.each do |t| %>
+    <% if t.name == "社会" %>
+    <p>教科名:<%= t.name2 %></p>
+    <p>方法:<%= t.contents %></p>
+    <p>学年:<%= t.grade %></p>
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    <%= link_to "詳細へ", subject_path(t.id) %>
+    <%= link_to "編集する", edit_subject_path(t.id) %>
+    <%= button_to "削除する", subject_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
 
   
+  </div>
 
-  <%= link_to "詳細へ", subject_path(t.id) %>
-  <%= link_to "編集する", edit_subject_path(t.id) %>
-  <%= button_to "削除する", subject_path(t.id), method: :delete %>
-  <% end %>
-<% end %>
-</div>
+
+
+
+
+
+
+
+
 
 <div class="tab_content" id="sonota_content">
 <h3>投稿を検索</h3>
@@ -80,7 +124,7 @@
 <% @subjects.each do |t| %>
   <% if t.name == "その他" %>  
   <p>教科名:<%= t.name2 %></p>
-  <p>内容:<%= t.contents %></p>
+  <p>方法:<%= t.contents %></p>
   <p>学年:<%= t.grade %></p>
 
   <%= image_tag t.image_url, size: "250x200" if t.image? %>
@@ -94,3 +138,6 @@
 <% end %>
 
 </div>
+
+</div>
+

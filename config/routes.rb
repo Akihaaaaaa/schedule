@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get 'subjects/japanese' => 'subjects#japanese'
   get 'subjects/math' => 'subjects#math'
   get 'subjects/english' => 'subjects#english'
-
+  get 'subjects/society' => 'subjects#society'
+  get 'subjects/science' => 'subjects#science'
+  get 'subjects/others' => 'subjects#others'
+ 
   
   get 'subjects/index'  => 'subjects#index'
   get 'subjects/new'  => 'subjects#new'
